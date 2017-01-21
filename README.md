@@ -25,8 +25,8 @@ This feature helps in exploring java annotations.
 				
 	As it has single member, name can be dropped and it can be written as @SuppressWarnings("unchecked")
 				
-	- multi valued annotations: annotations declared with multiple members 
-	 ex: @WebServlet(name="LoginServlet", urlPatterns: {"/Login","/SessionTimeOut"}
+      - multi valued annotations: annotations declared with multiple members 
+        ex: @WebServlet(name="LoginServlet", urlPatterns: {"/Login","/SessionTimeOut"}
 				
 5) Annotations can again be classified as 
     
@@ -40,7 +40,7 @@ This feature helps in exploring java annotations.
 	  
 	  ii) meta annotations - useful for building custom annotations 
 	  
-     	      @
+     	      @Documented, @Inherited, @Target, @Retention
      
      - custom annotations : annotations that a
 				
