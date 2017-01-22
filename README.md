@@ -39,7 +39,7 @@ This feature helps in exploring java annotations.
 	  
 	   ii) meta annotations - useful for building custom annotations 
 	  
-     	      @Documented, @Inherited, @Retention, @Target are custom annotations
+	      @Documented, @Inherited, @Retention, @Target are custom annotations
      
      - custom annotations : annotations that are user defined
 				
