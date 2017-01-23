@@ -42,6 +42,7 @@ This feature helps in exploring java annotations.
 	      @Override annotation is way a programmer can ensure that he has overridden a method from super class/interface. Compiler generates an error if the method is not overriden. This is a method level annotation.
 	      
 	      @SupressWarnings is way a programmer can inform the compiler to not worry about type-unsafe operations performed in a method
+	      
 	      @FunctionalInterface is way a programmer can inform the compiler that a particular interface is a functional interface. A functional interface is an interface with exactly one method.
 	  
 	   ii) meta annotations - useful for building custom annotations 
