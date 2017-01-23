@@ -36,6 +36,12 @@ This feature helps in exploring java annotations.
    	   i)  general purpose annotations - useful for general purpose in programs and they are available in java.lang package
 	  
 	      @Deprecated, @Override, @SuppressWarnings, @FuncationalInterface (java 8) are general purpose annotations
+	      
+	      @Deprecated annotation is way a programmer can mark a method as outdated. Compiler generates a warning when it finds any references to the deprecated method.
+	      
+	      @Override annotation is way a programmer can ensure that he has overridden a method from super class/interface. Compiler generates an error if the method is not overriden. This is a method level annotation.
+	      
+	      @SupressWarnings is way a programmer can inform the compiler to not worry about type-unsafe operations performed in a method
 	  
 	   ii) meta annotations - useful for building custom annotations 
 	  
