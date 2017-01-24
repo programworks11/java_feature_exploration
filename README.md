@@ -34,8 +34,6 @@ This feature helps in exploring java annotations.
      
        These can be classified again as
    	   i)  general purpose annotations - useful for general purpose in programs and they are available in java.lang package
-	  
-	      @Deprecated, @Override, @SuppressWarnings, @FuncationalInterface (java 8) are general purpose annotations
 	      
 	      @Deprecated annotation is way a programmer can mark a method as outdated. Compiler generates a warning when it finds any references to the deprecated method.
 	      
@@ -49,7 +47,13 @@ This feature helps in exploring java annotations.
 	  
 	   ii) meta annotations - useful for building custom annotations 
 	  
-	      @Documented, @Inherited, @Retention, @Target are custom annotations
+	      @Documented annotation is a way programmer can mark an annotation declaration as documentable ie., javadoc tool will include details of the annotation used in a program.	 		 
+		    
+	      @Inherited annotation is a way programmer can mark an annotation declaration as inheritable ie., an annotation applied to super class/interface will not be passed to child class/interface by default. If an annotation declaration is marked with @Inherited then it gets inherited to child classes.
+	      
+	      @Retention annotation is a way programmer can mark an annotation declaration to be retained. The value passed to annotation determines till which state the annotation is retained. RetentionPolicy enum has values SOURCE, CLASS, RUNTIME.  
+	      
+	      , @Target are custom annotations
 	      
 	      All these annotations are part of java.lang.annotation.
      
