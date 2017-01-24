@@ -1,6 +1,6 @@
 This feature helps in exploring java annotations.
 
-1) Annotation, a form of meta data. Provide data about a program that is not part of the program. Annotations provide additional information about the program to compiler, java runtime.
+1) Annotation, a form of meta data. Provide data about a program that is not part of the program. Annotations provide additional information about the program to compiler, java runtime. All annotations class have a super type java.lang.annotations.Annotation.
 
 2) Declaration syntax -
 
@@ -43,11 +43,15 @@ This feature helps in exploring java annotations.
 	      
 	      @SupressWarnings is way a programmer can inform the compiler to not worry about type-unsafe operations performed in a method
 	      
-	      @FunctionalInterface is way a programmer can inform the compiler that a particular interface is a functional interface. A functional interface is an interface with exactly one method.
+	      @FunctionalInterface is way a programmer can inform the compiler that a particular interface is a functional interface. A functional interface is an interface with exactly one method. Any deviation from this will generate compile time error.  
+	      
+	      All these annotations are part of java.lang package. 
 	  
 	   ii) meta annotations - useful for building custom annotations 
 	  
 	      @Documented, @Inherited, @Retention, @Target are custom annotations
+	      
+	      All these annotations are part of java.lang.annotation.
      
      - custom annotations : annotations that are user defined
 				
