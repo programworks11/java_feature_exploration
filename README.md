@@ -57,6 +57,16 @@ This feature helps in exploring java annotations.
 	      @Target annotation is used to annotate an annotation declaration to define the contexts in which it is applicable. This can be applied in 8 different contexts like package, types(class, interface, enums, annotation declaration type), method declarations, constructor declarations, parameter declarations, field declarations, parameter declarations, local variable declarations.
 	      
 	      All these annotations are part of java.lang.annotation.
+	      
+	      @Documented
+	      @Inherited
+	      @Retention()
+	      @Target()
+	      interface AnnotationName
+	      {
+	      	 datatype membername() default value;
+	      }
+	      
      
      - custom annotations : annotations that are user defined
 				
