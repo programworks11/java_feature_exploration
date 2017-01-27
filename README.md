@@ -33,6 +33,7 @@ This feature helps in exploring java annotations.
      - standard annotations :  annotations that are provided as part of API 
      
        These can be classified again as
+       
    	   i)  general purpose annotations - useful for general purpose in programs and they are available in java.lang package
 	      
 	      @Deprecated annotation is used to annotate a method as outdated. Compiler generates a warning when it finds any references to the deprecated method.
