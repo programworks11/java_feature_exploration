@@ -54,7 +54,7 @@ This feature helps in exploring java annotations.
 	      
 	      @Retention annotation is used to annotate an annotation declaration so compiler understands till which level it needs to promote the retention. The value passed to annotation determines till which level (source, class, runtime) the annotation is retained. RetentionPolicy enum has values SOURCE, CLASS, RUNTIME.  
 	      
-	      @Target annotation is used to annotate an annotation declaration so 
+	      @Target annotation is used to annotate an annotation declaration to define the contexts in which it is applicable. This can be applied in 8 different contexts like package, types(class, interface, enums, annotation declaration type), method declarations, constructor declarations, parameter declarations, field declarations, parameter declarations, local variable declarations.
 	      
 	      All these annotations are part of java.lang.annotation.
      
