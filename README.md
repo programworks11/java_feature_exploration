@@ -64,9 +64,10 @@ This feature helps in exploring java annotations.
 		      @Target({ElementType.METHOD, ElementType.TYPE})
 		      interface AnnotationName
 		      {
-			 datatype membername() default value;
+			 	datatype membername() default value;
 		      }
 	      
      
-     - custom annotations : annotations that are user defined
-				
+     - custom annotations : annotations that are user defined and these can be defined using meta annotations as shown in above example. These annotations can be used using reflection API
+     	   
+	
