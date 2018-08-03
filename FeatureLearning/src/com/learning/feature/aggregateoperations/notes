@@ -1,0 +1,65 @@
+Pipeline 
+   	1) A pipeline is sequence of aggregate operations
+ 	2) Pipeline is made of a source, intermediate operations and terminator
+ 	3) Stream 
+ 	   	- Stream is a sequence of elements 
+ 	   	- Unlike collections, stream is not a data structure that stores elements.
+ 	   	- Stream carries values from a source through pipeline
+ 	4) Source can be a list, array or a generator function or I/O channel
+ 	5) Intermediate operation is a method that returns Stream
+ 	6) Terminator aka reduction operation is a method that returns a non-stream result
+ 
+ Difference between aggregate operations and iterators
+ 	- Aggregate operations use internal iteration so JDK handles how to iterate whereas in case of iterators, programmer specify iteration logic.
+ 	  So external iteration is sequential and internal iteration can be in any order as parallel computing can be utilized. 
+ 	- Aggregate operations process elements from a stream, not directly from a collection
+ 	- Most aggregate operations accept lambda as input so they can be customized
+ 
+ Reduction 
+ 	1) JDK provides many reduction or terminal operations like sum, avg, max etc., that return one value by combining the contents of a stream
+ 	2) JDK also provides reduction operations that return a collection
+ 	3) JDK also provides general purpose reduce and collection reduction operations 
+
+ Stream.reduce(identity, accumulator function) 
+ 	1) Identity is the initial value or default result value when stream has no elements
+ 	2) Accumulator function takes two parameters, a partial result of reduction and next element in stream 
+ 	3) reduce operation always returns a new value and accumulator also returns a new value every time and 
+ 	   this will result in performance issues while dealing with collections
+ 	   
+Stream.collect(supplier, accumulator, combiner)
+	1) Unlike reduce, collect method modifies or mutates existing value
+	2) Supplier is a factory function, it constructs new instances
+	3) Accumulator function incorporates a stream element into a result container
+	4) Combiner function takes two result containers and merges their contents
+	Note 
+	- Supplier is a lambda expression or method reference
+	- Accumulator and combiner functions do not return any values
+	
+Parallelism
+	1) Parallel computing involves dividing a problem into sub problems, solving these problems simultaneously and combining these results
+	2) Java SE provides fork/join framework so developers can leverage it. Developer still needs to specify how to divide and combine them.
+	3) With Aggregate operations, java runtime performs  this partitioning and combining 
+	4) Implementing parallelism which involves collections is tough as collections are not thread safe. 
+	   Using collection synchronization wrappers results in thread safe operation but it prevents parallelism.
+	5) Aggregate operations and streams enable developers implement parallelism on non-thread safe collections provided they are not modified while working on them  
+	
+	Stream
+		- Stream can be executed in serial or parallel
+		- When a stream executes in parallel, Java runtime partitions the stream into multiple sub streams. 
+		  Aggregate operations iterate over and process these sub streams in parallel and then combine the results.
+		- When you create a stream, it is always a serial stream unless otherwise specified. 
+		  To create a parallel stream, invoke the operation Collection.parallelStream. Alternatively, invoke the operation BaseStream.parallel.
+	
+	Concurrent reduction
+		- Pipeline with parallel stream and reduction operation with concurrency
+		- Java runtime performs a concurrent reduction if all of the the following are true for a particular pipeline that contains the collect operation
+		   1) The stream is parallel.
+           2) The parameter of the collect operation, the collector, has the characteristic Collector.Characteristics.CONCURRENT. 
+              To determine the characteristics of a collector, invoke the Collector.characteristics method.
+		   3) Either the stream is unordered, or the collector has the characteristic Collector.Characteristics.UNORDERED. 
+		      To ensure that the stream is unordered, invoke the BaseStream.unordered operation.
+ 		
+ 	
+ 	
+ 	 
+ 
