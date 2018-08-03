@@ -6,6 +6,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import com.learning.util.Person;
+import com.learning.util.PersonSearchInterface;
 import com.learning.util.SampleTypeUtil;
 
 public class LambdaExpressionsLearning {

@@ -1,4 +1,4 @@
-package com.learning.feature.lambdaexpression;
+package com.learning.util;
 
 public interface PersonSearchInterface {
 
