@@ -1,0 +1,98 @@
+Functional interfaces
+	- Functional interface provide target types for lambda expressions and method references
+	- Each functional interface has single abstract method, called the functional method, 
+	  which lambda expression parameter and return types target
+	- Functional interfaces can provide a target type in multiple context like 
+	  assignment context, method invocation or cast context
+	- All functional interfaces are recommended to have an informative @FunctionalInterface annotation.
+	  This not only clear indicates the purpose of the interface but also allows compiler to generate 
+	  an error if the annotated interface does not satisfy the conditions
+	- Functional interfaces may still have default methods and they do not count
+
+Examples of functional interfaces 
+	Function
+		- Function interface is a parameterized type interface that has a method that takes one parameter type as 
+		  input and generates other parameter type as output
+		- Function interface has apply() as single abstract method which is targeted by lambda's
+		- One of the Map.computeIfAbsent() parameter is Function interface which depicts its usage
+		- Function interface has compose() method which can be used to chain multiple Function 
+		  interface implementations and execute them sequentially
+		    @FunctionalInterface
+		    public interface Function<T, R> {
+		    	//default methods 
+		    	public R apply (T t);
+		    }
+		    
+		- Additional interfaces are provided since primitives cannot be passed as parameterized types
+			Examples - 
+			IntFunction, LongFunction, DoubleFunction takes parameter of int, long, double primitives with parameterized return type
+			ToIntFunction, ToLongFunction, ToDoubleFunction takes parameterized type and returns int, long, double primitives
+	  	    IntToDoubleFunction, DoubleToIntFunction, IntToLongFunction, LongToIntFunction, DoubleToLongFunction and 
+	  	    LongToDoubleFunction take and return primitive types.
+ 
+	BiFunction
+		- BiFunction interface is a parameterized type interface that has a method that takes two parameter type as 
+		  input and generates 3rd parameter type as output 
+		  	@FunctionalInterface
+		  	public interface BiFunction<T, U, R> {
+		  		//default methods 
+		  		public R apply(T t, U u);
+		  	}
+		- default method andThen(Function<? super R, ? extends V> after) returns a composed/chained function
+		- ToDoubleBiFunction, ToIntBiFunction and ToFloatBiFunction can be used to return primitive data types
+	
+	Supplier
+		- Supplier interface is a parameterized type interface which accepts no parameters and returns parameterized type
+			@FunctionalInterface
+		  	public interface Supplier<R> {
+		  		//default methods 
+		  		public R get();
+		  	}
+		- It is typically used for lazy generation of values. This can be useful if the generation of the argument takes
+		  considerable amount of time.
+		- BooleanSupplier, DoubleSupplier, LongSupplier and IntSupplier return respective primitive types
+		
+	Consumer
+		- Consumer interface is a parameterized type interface which accepts one parameter and return nothing
+			@FunctionalInterface
+		  	public interface Consumer<T> {
+		  		//default methods 
+		  		public void accept(T t);
+		  	}
+		- Performs the operation on a given type and Consumer is used for side effects 
+		- default andThen() method is used for composing/chaining
+		- There are also specialized versions of consumer for primitive types - DoubleConsumer, IntConsumer and LongConsumer
+		- BiConsumer interface is a parameterized type interface which accepts two parameters and return nothing
+		- There are also specialized version of consumer that takes two parameters - ObjDoubleConsumer, ObjLongConsumer, 
+		  ObjIntConsumer which consume one generic type and respective primitive type
+		  
+	Predicate 
+		- Predicate interface is a parameterized type interface which accepts one parameter and return boolean
+			@FunctionalInterface
+			public interface Predicate<T> {
+				// default and static methods
+				public boolean test(T t);
+			} 
+		- IntPredicate, LongPredicate, DoublePredicate can be used with respective primitives
+		- default methods and(Predicate) and or(Predicate) is used to compose predicate that 
+		  represent logical AND and logical OR
+		- default method negate() returns a predicate that represents logical negation of this 
+		  predicate
+		- static method isEqual(Object) returns a predicate that tests if two arguments are equal(reference)
+		
+	Operators
+		- Operator interfaces are special cases of a function that receive and return same type
+		- UnaryOperator and BinaryOperator are operator interfaces and they inherit Function interface
+		- IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator, IntBinaryOperator, LongBinaryOperator 
+		  and DoubleBinaryOperator can be used with respective primitives
+		 
+	Legacy functional interfaces
+		- Many interfaces with single abstract method existed before java 8 and they can be targeted by lambdas
+		- Runnable and Callable are some examples
+		  
+		
+		
+	
+
+	  
+	
